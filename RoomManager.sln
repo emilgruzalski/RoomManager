@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoomManagerServer", "RoomManagerServer\RoomManagerServer.csproj", "{19A9932F-2333-4280-B2B9-17EA06529A19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoomManagerClient", "RoomManagerClient\RoomManagerClient.csproj", "{6D3D26B5-270F-4222-859D-2BC9436360D2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19A9932F-2333-4280-B2B9-17EA06529A19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19A9932F-2333-4280-B2B9-17EA06529A19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19A9932F-2333-4280-B2B9-17EA06529A19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19A9932F-2333-4280-B2B9-17EA06529A19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D3D26B5-270F-4222-859D-2BC9436360D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D3D26B5-270F-4222-859D-2BC9436360D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D3D26B5-270F-4222-859D-2BC9436360D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D3D26B5-270F-4222-859D-2BC9436360D2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FD7FFA08-DC32-4F15-966B-D1EF81C302B3}
+	EndGlobalSection
+EndGlobal
