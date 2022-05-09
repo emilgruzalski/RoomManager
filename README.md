@@ -4,4 +4,4 @@ Pracownik może być przypisany do pokoju (na okres od-do). Po przekroczeniu dat
 
 Program ma pozwolić na generowanie listy tekstowej pokojów (z informacjami o pracownikach i wolnych miejscach) oraz pracowników z przypisanymi pokojami.
 
-Pracownik po przekroczeniu daty zatrudnienia zostaje automatycznie zarchiwizowany(przeniesiony do odpowiedniej tabeli).
+Pracownik po przekroczeniu daty zatrudnienia zostaje automatycznie zarchiwizowany (przeniesiony do odpowiedniej tabeli).
