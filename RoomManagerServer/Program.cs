@@ -10,6 +10,7 @@ namespace RoomManagerServer
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
