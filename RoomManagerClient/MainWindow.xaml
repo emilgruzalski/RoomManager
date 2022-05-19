@@ -5,18 +5,69 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RoomManagerClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Room Manager" Height="450" Width="800">
     <Grid>
-        <Button x:Name="Room_Button" Content="Pokoje" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Background="#FFC8C896" Height="75" Width="200"/>
-        <Button x:Name="Employee_Button" Content="Pracownicy" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" Background="#FFC8C896" Height="75" Width="200"/>
-        <Button x:Name="Assignment_Button" Content="Przypisania" HorizontalAlignment="Left" Margin="10,180,0,0" VerticalAlignment="Top" Background="#FFC8C896" Height="75" Width="200"/>
-        <Button x:Name="Print_Button" Content="Drukuj" HorizontalAlignment="Left" Margin="10,265,0,0" VerticalAlignment="Top" Background="#FFC8C896" Height="75" Width="200"/>
-        <TextBox x:Name="Building_Input" HorizontalAlignment="Right" Margin="0,10,10,0" TextWrapping="Wrap" Text="Budynek" VerticalAlignment="Top" Width="150" Height="38"/>
-        <TextBox x:Name="Room_Phone_Input" HorizontalAlignment="Right" Margin="0,53,10,0" TextWrapping="Wrap" Text="Numer telefonu" VerticalAlignment="Top" Width="150" Height="35"/>
-        <TextBox x:Name="Purpose_Input" HorizontalAlignment="Right" Margin="0,95,10,0" TextWrapping="Wrap" Text="Cel pokoju" VerticalAlignment="Top" Width="150" Height="33"/>
-        <TextBox x:Name="Desk_Input" HorizontalAlignment="Right" Margin="0,133,10,0" TextWrapping="Wrap" Text="Ilość biurek" VerticalAlignment="Top" Width="150" Height="35"/>
-        <Button x:Name="Room_Add" Content="Dodaj" HorizontalAlignment="Right" Margin="0,175,10,0" VerticalAlignment="Top" Width="150" Height="50"/>
-        <Button x:Name="Room_Update" Content="Aktualizuj" HorizontalAlignment="Right" Margin="0,235,10,0" VerticalAlignment="Top" Width="150" Height="50"/>
-        <Button x:Name="Room_Delete" Content="Usuń" HorizontalAlignment="Right" Margin="0,295,10,0" VerticalAlignment="Top" Width="150" Height="50"/>
+        <TabControl TabStripPlacement="Top">
+            <TabItem Header="Pracownicy">
+                <Grid>
+                    <StackPanel HorizontalAlignment="Right">
+                        <TextBox x:Name="Name_Input" Margin="0,0,0,0" TextWrapping="Wrap" Text="Imie" VerticalAlignment="Top" Width="170" Height="38"/>
+                        <TextBox x:Name="Surname_Input" Margin="0,3,0,0" TextWrapping="Wrap" Text="Nazwisko" VerticalAlignment="Top" Width="170" Height="38"/>
+                        <TextBox x:Name="Employee_Phone_Input" Margin="0,3,0,0" TextWrapping="Wrap" Text="Numer telefonu" VerticalAlignment="Top" Width="170" Height="35"/>
+                        <TextBox x:Name="Role_Input" Margin="0,3,0,0" TextWrapping="Wrap" Text="Rola" VerticalAlignment="Top" Width="170" Height="33"/>
+                        <TextBox x:Name="Hired_From_Input" Margin="0,3,0,0" TextWrapping="Wrap" Text="Zatrudniony od" VerticalAlignment="Top" Width="170" Height="35"/>
+                        <TextBox x:Name="Hired_To_Input" Margin="0,3,0,0" TextWrapping="Wrap" Text="Zatrudniony do" VerticalAlignment="Top" Width="170" Height="35"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Left">
+                        <Button x:Name="Employee_Add" Content="Dodaj" Margin="0,0,0,0" VerticalAlignment="Top" Width="150" Height="50"/>
+                        <Button x:Name="Employee_Update" Content="Aktualizuj" Margin="0,3,0,0" VerticalAlignment="Top" Width="150" Height="50"/>
+                        <Button x:Name="Employee_Delete" Content="Usuń" Margin="0,3,0,0" VerticalAlignment="Top" Width="150" Height="50"/>
+                        <Button x:Name="Employee_Print" Content="Drukuj" Margin="0,3,0,0" VerticalAlignment="Top" Width="150" Height="50"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Pokoje">
+                <Grid>
+                    <StackPanel HorizontalAlignment="Right">
+                        <TextBox x:Name="Building_Input" Margin="0,0,0,0" TextWrapping="Wrap" Text="Budynek" VerticalAlignment="Top" Width="170" Height="38"/>
+                        <TextBox x:Name="Room_Phone_Input" Margin="0,3,0,0" TextWrapping="Wrap" Text="Numer telefonu" VerticalAlignment="Top" Width="170" Height="35"/>
+                        <TextBox x:Name="Purpose_Input" Margin="0,3,0,0" TextWrapping="Wrap" Text="Cel pokoju" VerticalAlignment="Top" Width="170" Height="33"/>
+                        <TextBox x:Name="Desk_Input" Margin="0,3,0,0" TextWrapping="Wrap" Text="Ilość biurek" VerticalAlignment="Top" Width="170" Height="35"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Left">
+                        <Button x:Name="Room_Add" Content="Dodaj" Margin="0,0,0,0" VerticalAlignment="Top" Width="150" Height="50"/>
+                        <Button x:Name="Room_Update" Content="Aktualizuj" Margin="0,3,0,0" VerticalAlignment="Top" Width="150" Height="50"/>
+                        <Button x:Name="Room_Delete" Content="Usuń" Margin="0,3,0,0" VerticalAlignment="Top" Width="150" Height="50"/>
+                        <Button x:Name="Room_Print" Content="Drukuj" Margin="0,3,0,0" VerticalAlignment="Top" Width="150" Height="50"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Przypisania">
+                <Grid>
+                    <StackPanel HorizontalAlignment="Right">
+                        <TextBox x:Name="Assignment_Employee_Input" Margin="0,0,0,0" TextWrapping="Wrap" Text="ID Pracownika" VerticalAlignment="Top" Width="170" Height="38"/>
+                        <TextBox x:Name="Assignment_Room_Input" Margin="0,3,0,0" TextWrapping="Wrap" Text="ID Pokoju" VerticalAlignment="Top" Width="170" Height="35"/>
+                        <TextBox x:Name="Assignment_From_Input" Margin="0,3,0,0" TextWrapping="Wrap" Text="Przypisanie od" VerticalAlignment="Top" Width="170" Height="33"/>
+                        <TextBox x:Name="Assignment_To_Input" Margin="0,3,0,0" TextWrapping="Wrap" Text="Przypisanie do" VerticalAlignment="Top" Width="170" Height="35"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Left">
+                        <Button x:Name="Assignment_Add" Content="Dodaj" Margin="0,0,0,0" VerticalAlignment="Top" Width="150" Height="50"/>
+                        <Button x:Name="Assignment_Update" Content="Aktualizuj" Margin="0,3,0,0" VerticalAlignment="Top" Width="150" Height="50"/>
+                        <Button x:Name="Assignment_Delete" Content="Usuń" Margin="0,3,0,0" VerticalAlignment="Top" Width="150" Height="50"/>
+                        <Button x:Name="Assignment_Print" Content="Drukuj" Margin="0,3,0,0" VerticalAlignment="Top" Width="150" Height="50"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Archiwa">
+                <Grid>
+                    <StackPanel HorizontalAlignment="Right">
+                        <TextBlock x:Name="Employee_Output" Margin="0,0,0,0" TextWrapping="Wrap" Text="Tabela z pracownikami" VerticalAlignment="Top" Width="170" Height="38"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Left">
+                        <TextBlock x:Name="Assignment_Output" Margin="0,0,0,0" TextWrapping="Wrap" Text="Tabela z przypisaniami" VerticalAlignment="Top" Width="170" Height="38"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
