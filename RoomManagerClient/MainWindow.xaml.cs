@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,28 @@ namespace RoomManagerClient
         public MainWindow()
         {
             InitializeComponent();
+            LoadDataGrid();
+        }
+        public void LoadDataGrid() 
+        {
+            RoomGrid roomGrid = new RoomGrid();
+            AssignmentGrid assignmentGrid = new AssignmentGrid();
+            EmployeeGrid employeeGrid = new EmployeeGrid();
+            RoomDataGrid.ItemsSource = roomGrid.RoomList;
+            AssignmentDataGrid.ItemsSource = assignmentGrid.AssignmentList;
+            EmployeeDataGrid.ItemsSource = employeeGrid.EmployeeList;
+        }
+        private void dataGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+
+        }
+        private void dataGrid_Selected(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
         }
     }
 }

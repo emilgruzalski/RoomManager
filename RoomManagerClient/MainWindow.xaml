@@ -5,63 +5,86 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RoomManagerClient"
         mc:Ignorable="d"
-        Title="Room Manager" Height="450" Width="800">
+        Title="Room Manager" MinHeight="600" Height="600" MinWidth="800" Width="800">
+    <Window.Resources>
+        <local:RoomGrid x:Key="Pokoje"/>
+    </Window.Resources>
     <Grid>
-        <TabControl TabStripPlacement="Top">
-            <TabItem Header="Pracownicy">
+        <TabControl TabStripPlacement="Top" Background="RoyalBlue">
+            <TabItem Header="Pracownicy" Background="YellowGreen">
                 <Grid>
-                    <StackPanel HorizontalAlignment="Right">
-                        <TextBox x:Name="Name_Input" Margin="0,0,0,0" TextWrapping="Wrap" Text="Imie" VerticalAlignment="Top" Width="170" Height="38"/>
-                        <TextBox x:Name="Surname_Input" Margin="0,3,0,0" TextWrapping="Wrap" Text="Nazwisko" VerticalAlignment="Top" Width="170" Height="38"/>
+                    <StackPanel HorizontalAlignment="Left">
+                        <TextBox x:Name="Name_Input" Margin="0,3,0,0" TextWrapping="Wrap" Text="Imie" VerticalAlignment="Top" Width="170" Height="35"/>
+                        <TextBox x:Name="Surname_Input" Margin="0,3,0,0" TextWrapping="Wrap" Text="Nazwisko" VerticalAlignment="Top" Width="170" Height="35"/>
                         <TextBox x:Name="Employee_Phone_Input" Margin="0,3,0,0" TextWrapping="Wrap" Text="Numer telefonu" VerticalAlignment="Top" Width="170" Height="35"/>
-                        <TextBox x:Name="Role_Input" Margin="0,3,0,0" TextWrapping="Wrap" Text="Rola" VerticalAlignment="Top" Width="170" Height="33"/>
+                        <TextBox x:Name="Role_Input" Margin="0,3,0,0" TextWrapping="Wrap" Text="Rola" VerticalAlignment="Top" Width="170" Height="35"/>
                         <TextBox x:Name="Hired_From_Input" Margin="0,3,0,0" TextWrapping="Wrap" Text="Zatrudniony od" VerticalAlignment="Top" Width="170" Height="35"/>
                         <TextBox x:Name="Hired_To_Input" Margin="0,3,0,0" TextWrapping="Wrap" Text="Zatrudniony do" VerticalAlignment="Top" Width="170" Height="35"/>
+                        <Button x:Name="Employee_Add" Content="Dodaj" Margin="0,3,0,0" VerticalAlignment="Top" MinWidth="170" Height="50"/>
+                        <Button x:Name="Employee_Delete" Content="Usuń" Margin="0,3,0,0" VerticalAlignment="Top" MinWidth="170" Height="50"/>
+                        <Button x:Name="Employee_Print" Content="Drukuj" Margin="0,3,0,0" VerticalAlignment="Top" MinWidth="170" Height="50"/>
                     </StackPanel>
-                    <StackPanel HorizontalAlignment="Left">
-                        <Button x:Name="Employee_Add" Content="Dodaj" Margin="0,0,0,0" VerticalAlignment="Top" Width="150" Height="50"/>
-                        <Button x:Name="Employee_Update" Content="Aktualizuj" Margin="0,3,0,0" VerticalAlignment="Top" Width="150" Height="50"/>
-                        <Button x:Name="Employee_Delete" Content="Usuń" Margin="0,3,0,0" VerticalAlignment="Top" Width="150" Height="50"/>
-                        <Button x:Name="Employee_Print" Content="Drukuj" Margin="0,3,0,0" VerticalAlignment="Top" Width="150" Height="50"/>
-                    </StackPanel>
-                    <DataGrid d:ItemsSource="{d:SampleData ItemCount=10}" Margin="155,0,175,10"/>
+                    <ScrollViewer Margin="175,3,0,0">
+                        <DataGrid x:Name="EmployeeDataGrid" d:ItemsSource="{Binding}"
+                              AutoGenerateColumns="False" SelectedCellsChanged="dataGrid_SelectedCellsChanged" 
+                              SelectionChanged="dataGrid_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=id}" Header="Id" Width="Auto"/>
+                            <DataGridTextColumn Binding="{Binding Path=Building}" Header="Budynek" Width="Auto"/>
+                            <DataGridTextColumn Binding="{Binding Path=PhoneNumber}" Header="Numer telefonu" Width="Auto"/>
+                            <DataGridTextColumn Binding="{Binding Path=Purpose}" Header="Cel" Width="Auto"/>
+                            <DataGridTextColumn Binding="{Binding Path=NumberOfDesk}" Header="Ilość biurek" Width="Auto"/>
+                        </DataGrid.Columns>
+                        </DataGrid>
+                    </ScrollViewer>
                 </Grid>
             </TabItem>
-            <TabItem Header="Pokoje">
+            <TabItem Header="Pokoje" Background="YellowGreen">
                 <Grid>
-                    <StackPanel HorizontalAlignment="Right">
-                        <TextBox x:Name="Building_Input" Margin="0,0,0,0" TextWrapping="Wrap" Text="Budynek" VerticalAlignment="Top" Width="170" Height="38"/>
+                    <StackPanel HorizontalAlignment="Left">
+                        <TextBox x:Name="Building_Input" Margin="0,3,0,0" TextWrapping="Wrap" Text="Budynek" VerticalAlignment="Top" Width="170" Height="35"/>
                         <TextBox x:Name="Room_Phone_Input" Margin="0,3,0,0" TextWrapping="Wrap" Text="Numer telefonu" VerticalAlignment="Top" Width="170" Height="35"/>
-                        <TextBox x:Name="Purpose_Input" Margin="0,3,0,0" TextWrapping="Wrap" Text="Cel pokoju" VerticalAlignment="Top" Width="170" Height="33"/>
+                        <TextBox x:Name="Purpose_Input" Margin="0,3,0,0" TextWrapping="Wrap" Text="Cel pokoju" VerticalAlignment="Top" Width="170" Height="35"/>
                         <TextBox x:Name="Desk_Input" Margin="0,3,0,0" TextWrapping="Wrap" Text="Ilość biurek" VerticalAlignment="Top" Width="170" Height="35"/>
+                        <Button x:Name="Room_Add" Content="Dodaj" Margin="0,3,0,0" VerticalAlignment="Top" Width="170" Height="50"/>
+                        <Button x:Name="Room_Delete" Content="Usuń" Margin="0,3,0,0" VerticalAlignment="Top" Width="170" Height="50"/>
+                        <Button x:Name="Room_Print" Content="Drukuj" Margin="0,3,0,0" VerticalAlignment="Top" Width="170" Height="50"/>
                     </StackPanel>
-                    <StackPanel HorizontalAlignment="Left">
-                        <Button x:Name="Room_Add" Content="Dodaj" Margin="0,0,0,0" VerticalAlignment="Top" Width="150" Height="50"/>
-                        <Button x:Name="Room_Update" Content="Aktualizuj" Margin="0,3,0,0" VerticalAlignment="Top" Width="150" Height="50"/>
-                        <Button x:Name="Room_Delete" Content="Usuń" Margin="0,3,0,0" VerticalAlignment="Top" Width="150" Height="50"/>
-                        <Button x:Name="Room_Print" Content="Drukuj" Margin="0,3,0,0" VerticalAlignment="Top" Width="150" Height="50"/>
-                    </StackPanel>
-                    <DataGrid d:ItemsSource="{d:SampleData ItemCount=10}" Margin="155,0,175,10"/>
+                    <ScrollViewer Margin="175,3,0,0">
+                        <DataGrid x:Name="RoomDataGrid" d:ItemsSource="{Binding}"
+                            AutoGenerateColumns="False" SelectedCellsChanged="dataGrid_SelectedCellsChanged" 
+                            SelectionChanged="dataGrid_SelectionChanged">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Path=Id}" Header="Id" Width="Auto"/>
+                                <DataGridTextColumn Binding="{Binding Path=Building}" Header="Budynek" Width="Auto"/>
+                                <DataGridTextColumn Binding="{Binding Path=PhoneNumber}" Header="Numer telefonu" Width="Auto"/>
+                                <DataGridTextColumn Binding="{Binding Path=Purpose}" Header="Cel" Width="Auto"/>
+                                <DataGridTextColumn Binding="{Binding Path=NumberOfDesk}" Header="Ilość biurek" Width="Auto"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </ScrollViewer>
                 </Grid>
             </TabItem>
-            <TabItem Header="Przypisania">
+            <TabItem Header="Przypisania" Background="YellowGreen">
                 <Grid>
-                    <StackPanel HorizontalAlignment="Right">
-                        <TextBox x:Name="Assignment_Employee_Input" Margin="0,0,0,0" TextWrapping="Wrap" Text="ID Pracownika" VerticalAlignment="Top" Width="170" Height="38"/>
-                        <TextBox x:Name="Assignment_Room_Input" Margin="0,3,0,0" TextWrapping="Wrap" Text="ID Pokoju" VerticalAlignment="Top" Width="170" Height="35"/>
-                        <TextBox x:Name="Assignment_From_Input" Margin="0,3,0,0" TextWrapping="Wrap" Text="Przypisanie od" VerticalAlignment="Top" Width="170" Height="33"/>
-                        <TextBox x:Name="Assignment_To_Input" Margin="0,3,0,0" TextWrapping="Wrap" Text="Przypisanie do" VerticalAlignment="Top" Width="170" Height="35"/>
-                    </StackPanel>
                     <StackPanel HorizontalAlignment="Left">
-                        <Button x:Name="Assignment_Add" Content="Dodaj" Margin="0,0,0,0" VerticalAlignment="Top" Width="150" Height="50"/>
-                        <Button x:Name="Assignment_Update" Content="Aktualizuj" Margin="0,3,0,0" VerticalAlignment="Top" Width="150" Height="50"/>
-                        <Button x:Name="Assignment_Delete" Content="Usuń" Margin="0,3,0,0" VerticalAlignment="Top" Width="150" Height="50"/>
-                        <Button x:Name="Assignment_Print" Content="Drukuj" Margin="0,3,0,0" VerticalAlignment="Top" Width="150" Height="50"/>
+                        <TextBox x:Name="Assignment_Employee_Input" Margin="0,3,0,0" TextWrapping="Wrap" Text="ID Pracownika" VerticalAlignment="Top" Width="170" Height="35"/>
+                        <TextBox x:Name="Assignment_Room_Input" Margin="0,3,0,0" TextWrapping="Wrap" Text="ID Pokoju" VerticalAlignment="Top" Width="170" Height="35"/>
+                        <TextBox x:Name="Assignment_From_Input" Margin="0,3,0,0" TextWrapping="Wrap" Text="Przypisanie od" VerticalAlignment="Top" Width="170" Height="35"/>
+                        <TextBox x:Name="Assignment_To_Input" Margin="0,3,0,0" TextWrapping="Wrap" Text="Przypisanie do" VerticalAlignment="Top" Width="170" Height="35"/>
+                        <Button x:Name="Assignment_Add" Content="Dodaj" Margin="0,3,0,0" VerticalAlignment="Top" Width="170" Height="50"/>
+                        <Button x:Name="Assignment_Update" Content="Aktualizuj" Margin="0,3,0,0" VerticalAlignment="Top" Width="170" Height="50"/>
+                        <Button x:Name="Assignment_Delete" Content="Usuń" Margin="0,3,0,0" VerticalAlignment="Top" Width="170" Height="50"/>
+                        <Button x:Name="Assignment_Print" Content="Drukuj" Margin="0,3,0,0" VerticalAlignment="Top" Width="170" Height="50"/>
                     </StackPanel>
-                    <DataGrid d:ItemsSource="{d:SampleData ItemCount=10}" Margin="155,0,175,10"/>
+                    <ScrollViewer Margin="175,3,0,0">
+                        <DataGrid x:Name="AssignmentDataGrid" d:ItemsSource="{Binding}"
+                                  AutoGenerateColumns="False" SelectedCellsChanged="dataGrid_SelectedCellsChanged" 
+                                  SelectionChanged="dataGrid_SelectionChanged"/>
+                    </ScrollViewer>
                 </Grid>
             </TabItem>
-            <TabItem Header="Archiwa">
+            <TabItem Header="Archiwa" Background="YellowGreen">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*" />
